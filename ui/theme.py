@@ -2,19 +2,20 @@ from pathlib import Path
 
 PACKAGE_DIR = Path(__file__).resolve().parents[1]
 ICON_PATH = PACKAGE_DIR / "assets" / "icon.ico"
+EMOJI_DIR = PACKAGE_DIR / "assets" / "emojis"
 
-BG = "#f6f7fb"
+BG = "#eef4ff"
 SURFACE = "#ffffff"
 TEXT = "#111827"
 MUTED = "#6b7280"
 ACCENT = "#2563eb"
 ACCENT_DARK = "#1d4ed8"
-SUCCESS = "#16a34a"
-SUCCESS_DARK = "#15803d"
+SUCCESS = "#0ea5e9"
+SUCCESS_DARK = "#0284c7"
 DANGER = "#b91c1c"
 DANGER_SOFT = "#fee2e2"
-HERO = "#111827"
-HERO_SOFT = "#1f2937"
+HERO = "#172554"
+HERO_SOFT = "#1d4ed8"
 
 DISPLAY_NAMES = {
     "sg.ViewDistanceQuality": "Distance d'affichage",

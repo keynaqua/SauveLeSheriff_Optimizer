@@ -1,6 +1,6 @@
 # <img src="assets/app_logo.png" alt="Logo" width="44" align="left"> SauveLeSherif Optimizer
 
-✨ Optimiseur simple pour **SauveLeSherif** sur Steam.
+✨ Optimiseur simple pour **SauveLeSherif**.
 
 ## 📥 Téléchargement
 
@@ -19,14 +19,14 @@ L'application propose :
 - 🎚️ des réglages graphiques via une interface claire ;
 - ⚡ un bouton **Optimiser** pour appliquer un preset recommandé ;
 - ♻️ un bouton **Restaurer** pour remettre les qualités graphiques par défaut ;
-- 🟦 un bouton pour ajouter l'option Steam **DirectX 11** (`-dx11`) ;
-- 🧹 un bouton pour retirer l'option **DirectX 11** ;
+- 🧩 4 boutons **Optimisation supplémentaire** Engine.ini, du plus discret au plus agressif ;
 - 🔒 une interface locale, sans compte, sans connexion et sans collecte de données.
 
 Le fichier modifié est celui du jeu, dans le dossier utilisateur Windows :
 
 ```text
 %LOCALAPPDATA%\SauveLeSherif\Saved\Config\Windows\GameUserSettings.ini
+%LOCALAPPDATA%\SauveLeSherif\Saved\Config\Windows\Engine.ini
 ```
 
 ## 🛠️ Installation
@@ -77,11 +77,16 @@ Windows peut afficher un écran du type :
 
 ## 🎉 Bravo ! Le programme devrait maintenant se lancer.
 
-### 🎮 Option DirectX 11
+### Optimisation supplementaire Engine.ini
 
-Pour ajouter ou retirer l'option Steam `-dx11`, ferme Steam avant d'utiliser les boutons DirectX dans l'application.
+Les boutons **Optimisation supplementaire** servent si le preset de base ne suffit pas. Les options sont triees du gain le moins impactant visuellement au gain le plus agressif :
 
-L'application modifie uniquement les options de lancement Steam du jeu. Si Steam est ouvert, l'application refuse l'action pour éviter que Steam réécrive le fichier derrière.
+1. **Image nette** : garde l'AA du jeu/TXAA et coupe seulement les effets camera.
+2. **Ambiance + TAA** : passe en TAA et allege brouillard, nuages volumetriques, occlusion.
+3. **Lumieres et reflets** : passe en methode AA 1, SSR, reflections, Lumen, illumination dynamique.
+4. **Distance et ombres** : methode AA 1, ombres, distance d'affichage, LOD, vegetation.
+
+L'application cree ou met a jour `Engine.ini`, puis le remet en lecture seule pour eviter que le jeu remplace les valeurs.
 
 ## ♻️ Reset des paramètres
 
@@ -93,18 +98,11 @@ Pour remettre les réglages graphiques par défaut :
 
 Le reset remet les qualités graphiques à leur valeur par défaut dans l'application.
 
-Pour retirer DirectX 11 :
-
-1. Ferme Steam.
-2. Ouvre **SauveLeSherif Optimizer**.
-3. Clique sur **Retirer DirectX11**.
-4. Relance Steam.
-
 ## 🙌 Crédits
 
 - Application : **SauveLeSherif Optimizer**
 - Auteur : **Keyn 🫧 (@aquakeyn on Discord)**  
-- Jeu : [Sauve Le Shérif](https://store.steampowered.com/app/4760110/)
+- Jeu : **Sauve Le Shérif**
 - Page de téléchargement : [Releases page](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases)
 - Distribution : [GitHub](https://github.com/keynaqua/SauveLeSheriff_Optimizer)
 

@@ -80,9 +80,57 @@ def load_bitmap_icon(image_data):
     return photo
 
 
-def load_photo(path, max_size):
+def round_photo_corners(photo, radius):
+    width, height = photo.width(), photo.height()
+    if radius <= 0:
+        return photo
+
+    for y in range(height):
+        for x in range(width):
+            dx = max(radius - x, 0, x - (width - radius - 1))
+            dy = max(radius - y, 0, y - (height - radius - 1))
+            if dx * dx + dy * dy > radius * radius:
+                try:
+                    photo.transparency_set(x, y, True)
+                except tk.TclError:
+                    return photo
+    return photo
+
+
+def resize_photo(photo, size):
+    source_width, source_height = photo.width(), photo.height()
+    if source_width == size and source_height == size:
+        return photo
+
+    resized = tk.PhotoImage(width=size, height=size)
+    for y in range(size):
+        source_y = min(source_height - 1, int(y * source_height / size))
+        colors = []
+        transparent = []
+        for x in range(size):
+            source_x = min(source_width - 1, int(x * source_width / size))
+            color = photo.get(source_x, source_y)
+            if isinstance(color, tuple):
+                color = "#{:02x}{:02x}{:02x}".format(*color[:3])
+            colors.append(color)
+            try:
+                if photo.transparency_get(source_x, source_y):
+                    transparent.append(x)
+            except tk.TclError:
+                pass
+        resized.put("{" + " ".join(colors) + "}", to=(0, y))
+        for x in transparent:
+            try:
+                resized.transparency_set(x, y, True)
+            except tk.TclError:
+                break
+    return resized
+
+
+def load_photo(path, max_size, radius=0):
     if not path.exists():
         return None
+
     try:
         photo = tk.PhotoImage(file=str(path))
     except tk.TclError:
@@ -90,5 +138,5 @@ def load_photo(path, max_size):
     if photo is None:
         return None
 
-    factor = max((photo.width() + max_size - 1) // max_size, (photo.height() + max_size - 1) // max_size, 1)
-    return photo.subsample(factor, factor) if factor > 1 else photo
+    photo = resize_photo(photo, max_size)
+    return round_photo_corners(photo, radius)

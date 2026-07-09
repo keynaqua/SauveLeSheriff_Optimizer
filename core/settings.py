@@ -15,6 +15,8 @@ CONFIG_PATH = (
     / "GameUserSettings.ini"
 )
 
+ENGINE_CONFIG_PATH = CONFIG_PATH.with_name("Engine.ini")
+
 SLIDER_KEYS = [
     "sg.ViewDistanceQuality",
     "sg.AntiAliasingQuality",
@@ -47,13 +49,13 @@ OPTIMIZED_VALUES = {
     "ResolutionSizeY": 1080,
     "LastUserConfirmedResolutionSizeX": 1920,
     "LastUserConfirmedResolutionSizeY": 1080,
-    "FullscreenMode": 0,
-    "LastConfirmedFullscreenMode": 0,
-    "PreferredFullscreenMode": 0,
+    "FullscreenMode": 1,
+    "LastConfirmedFullscreenMode": 1,
+    "PreferredFullscreenMode": 1,
     "Version": 5,
     "AudioQualityLevel": 0,
     "LastConfirmedAudioQualityLevel": 0,
-    "FrameRateLimit": "0.000000",
+    "FrameRateLimit": "60.000000",
     "DesiredScreenWidth": 1920,
     "bUseDesiredScreenHeight": "False",
     "DesiredScreenHeight": 1080,
@@ -71,5 +73,70 @@ OPTIMIZED_VALUES = {
 RESTORE_VALUES = {key: 3 for key in SLIDER_KEYS}
 
 
-STEAM_APP_ID = "4760110"
-STEAM_LAUNCH_FLAG = "-dx11"
+ENGINE_OPTIMIZATION_PRESETS = [
+    {
+        "id": "image_cleanup",
+        "name": "1 - Netteté",
+        "button": "1 - Netteté",
+        "description": "Garde TXAA. Coupe flou, bloom et lens flare.",
+        "values": {
+            "r.MotionBlurQuality": 0,
+            "r.DepthOfFieldQuality": 0,
+            "r.SceneColorFringeQuality": 0,
+            "r.LensFlareQuality": 0,
+            "r.BloomQuality": 0,
+            "r.MaxAnisotropy": 16,
+        },
+    },
+    {
+        "id": "atmosphere",
+        "name": "2 - Ambiance + TAA",
+        "button": "2 - Ambiance",
+        "description": "TAA + brouillard, nuages et occlusion reduits.",
+        "values": {
+            "r.AntiAliasingMethod": 2,
+            "r.ContactShadows": 0,
+            "r.VolumetricFog": 0,
+            "r.VolumetricCloud": 0,
+            "r.Fog": 0,
+            "r.AmbientOcclusionLevels": 0,
+        },
+    },
+    {
+        "id": "lighting_reflections",
+        "name": "3 - Lumieres et reflets",
+        "button": "3 - Lumieres",
+        "description": "AA perf + reflets, Lumen et GI reduits.",
+        "values": {
+            "r.AntiAliasingMethod": 1,
+            "r.SSR.Quality": 0,
+            "r.ReflectionEnvironment": 0,
+            "r.DynamicGlobalIlluminationMethod": 0,
+            "r.ReflectionMethod": 0,
+            "r.Lumen.Reflections.Allow": 0,
+            "r.Lumen.DiffuseIndirect.Allow": 0,
+            "r.ReflectionQuality": 0,
+            "r.GlobalIlluminationQuality": 0,
+        },
+    },
+    {
+        "id": "distance_shadows",
+        "name": "4 - Distance et ombres",
+        "button": "4 - Distance",
+        "description": "AA perf + ombres, distance, LOD et vegetation reduits.",
+        "values": {
+            "r.AntiAliasingMethod": 1,
+            "r.Shadow.MaxResolution": 1024,
+            "r.Shadow.CSM.MaxCascades": 2,
+            "r.Shadow.DistanceScale": "0.8",
+            "r.LightMaxDrawDistanceScale": "0.8",
+            "r.ViewDistanceScale": "0.8",
+            "r.foliage.DensityScale": "0.7",
+            "r.StaticMeshLODDistanceScale": "1.2",
+            "r.Nanite": 1,
+            "r.VirtualShadowMaps": 0,
+            "r.Shadow.Virtual.Enable": 0,
+            "r.ShadowQuality": 0,
+        },
+    },
+]
