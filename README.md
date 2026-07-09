@@ -4,7 +4,7 @@
 
 ## 📥 Téléchargement
 
-➡️ **Télécharger la dernière version :** [SauveLeSherif Optimizer - Dernière release](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases/download/v1.0/SauveLeSherif_Optimizer.exe)
+➡️ **Télécharger la dernière version :** [SauveLeSherif Optimizer - Dernière release](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases/download/latest/SauveLeSherif_Optimizer.exe)
 
 ➡️ **Voir toutes les versions :** [Historique des releases](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases)
 
