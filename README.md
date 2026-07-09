@@ -48,7 +48,7 @@ Je tourne sur un portable avec une Rtx4060, un i7-13e gen et 16Go de RAM en DDR5
 
 ## 🛠️ Installation
 
-1. Télécharge la dernière version ici : [SauveLeSherif Optimizer - Download](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases/download/v1.0/SauveLeSherif_Optimizer.exe).
+1. Télécharge la dernière version ici : [SauveLeSherif Optimizer - Download](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases/download/latest/SauveLeSherif_Optimizer.exe).
 2. Récupère le fichier :
 
 ```text
