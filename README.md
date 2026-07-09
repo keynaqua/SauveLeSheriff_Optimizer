@@ -29,6 +29,23 @@ Le fichier modifié est celui du jeu, dans le dossier utilisateur Windows :
 %LOCALAPPDATA%\SauveLeSherif\Saved\Config\Windows\Engine.ini
 ```
 
+## Benchmark
+
+**Il est recommandé de n'utiliser les opti 1 à 4 qu'en complément des réglages en low, si ça ne suffit pas à rendre le jeu fluide.**  
+
+Voici mes tests personnels des différents profils. Gardez en tête que les optis 1, 2, 3 et 4 sont lancées avec l'opti (profil 0) actif.  
+Je tourne sur un portable avec une Rtx4060, un i7-13e gen et 16Go de RAM en DDR5.
+
+| Profil | FPS lobby | FPS in-game |
+| --- | ---: | ---: |
+| Jeu de base | 25 | 60 |
+| 0 - Optimiser | ~75 | 110 |
+| 0bis - Tout en low | 90 | 170 |
+| 1 - Netteté | ~70 | ~90 |
+| 2 - Ambiance + TAA | 85 | 120 |
+| 3 - Lumieres et reflets | 110 | 230 |
+| 4 - Distance et ombres | 110 | 230+ |
+
 ## 🛠️ Installation
 
 1. Télécharge la dernière version ici : [SauveLeSherif Optimizer - Download](https://github.com/keynaqua/SauveLeSheriff_Optimizer/releases/download/v1.0/SauveLeSherif_Optimizer.exe).
@@ -87,6 +104,7 @@ Les boutons **Optimisation supplementaire** servent si le preset de base ne suff
 4. **Distance et ombres** : methode AA 1, ombres, distance d'affichage, LOD, vegetation.
 
 L'application cree ou met a jour `Engine.ini`, puis le remet en lecture seule pour eviter que le jeu remplace les valeurs.
+
 
 ## ♻️ Reset des paramètres
 
